@@ -14,3 +14,8 @@
   background-color: #0087d7 !important;
   border: 0px !important;
 }
+/* login screen logo */
+.card-img, .card-img-bottom, .card-img-top{
+  width: 50% !important;
+  align-self: center;
+}
