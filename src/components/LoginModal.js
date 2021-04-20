@@ -3,6 +3,8 @@ import { Form,FormGroup, Label, Input, Card, CardImg, CardBody, Col, Row, Button
 import logo from '../assets/logo/cinema.png';
 import Login from '../utilis/api/auth/login';
 import axios from 'axios';
+import { VFXImg } from 'react-vfx';
+
 
 
 const LoginModal = (props) => {
@@ -10,7 +12,9 @@ const LoginModal = (props) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const [logged, setLoggedStatus] = useState('');
+  const [logged, setLoggedStatus] = useState(false);
+
+  
 
   function Submit(){
     setLoggedStatus('');
@@ -34,9 +38,20 @@ const LoginModal = (props) => {
       logged
       ? false
       : (
+      <>
+      <div class="bg"></div>
+      <div class="bg bg2"></div>
+      <div class="bg bg3"></div>
     <div className="back-drop">
+      
       <Card className="no-border">
-        <CardImg className="cinema-login-logo" top width="100%" src={logo} alt="Card image cap" />
+        {/* <CardImg className="cinema-login-logo" top width="100%" src={logo} alt="Card image cap" /> */}
+        <VFXImg
+        className="align-self-center m-3"
+        src={logo}
+        width="50%"
+        alt="Cinema App"
+        />
           <CardBody>
             <Form>
               <FormGroup>
@@ -44,16 +59,16 @@ const LoginModal = (props) => {
                   <Col md="3"/>
                   <Col>
                   <Label  for="exampleEmail"> - Login - </Label>
-                  <Input type="email" name="email" id="exampleEmail" placeholder="with a placeholder" onChange={event => setUsername(event.target.value)}/>
+                  <Input type="email" name="email" id="exampleEmail" placeholder="Podaj login" onChange={event => setUsername(event.target.value)}/>
                   <Label for="exampleEmail"> - Hasło - </Label>
                   {
                     logged 
                     ? false
-                    (<Input type="password" name="password" id="exampleEmail" placeholder="with a placeholder" onChange={event => setPassword(event.target.value)}/>) 
+                    (<Input type="password" name="password" id="exampleEmail" placeholder="Podaj hasło" onChange={event => setPassword(event.target.value)}/>) 
                     :
                     (
                       <> 
-                    <Input invalid type="password" name="password" id="exampleEmail" placeholder="with a placeholder" onChange={event => setPassword(event.target.value)}/>
+                    <Input invalid type="password" name="password" id="exampleEmail" placeholder="Podaj hasło" onChange={event => setPassword(event.target.value)}/>
                     <FormFeedback>Oh noes! that name is already taken</FormFeedback>
                       </>
                       )
@@ -69,6 +84,7 @@ const LoginModal = (props) => {
           </CardBody>
       </Card>
     </div>
+    </>
       )}
     </div>
   );
