@@ -51,6 +51,7 @@ const LoginModal = (props) => {
         src={logo}
         width="50%"
         alt="Cinema App"
+        shader="shine"
         />
           <CardBody>
             <Form>

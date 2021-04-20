@@ -18,7 +18,34 @@
   background-color: #0087d7 !important;
   border: 0px !important;
 }
-
+.sidebar{
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+  min-width: 220px !important;
+}
+.logo-white{
+  filter: brightness(0) invert(1);
+}
+.nav-link{
+  transition: 0.3s;
+  border-radius: 10px;
+  font-size: 1rem;
+  color:white;
+  text-transform: uppercase;
+}
+.nav-link:hover{
+  background: rgba(255,255,255,.8);
+  cursor: pointer;
+  transition: 0.3s;
+  color: #555;
+}
+.icon-sidebar{
+  margin: 0 10px;
+  margin-top: -2px;
+}
 /* login screen animation back */
 /* .bg {
   animation:slide 15s ease-in-out infinite alternate;

@@ -1,14 +1,30 @@
+import { useState } from 'react';
 import LoginModal from './components/LoginModal';
-import Sidebar from './components/Sidebar';
 import { VFXProvider } from 'react-vfx';
 import './App.css';
+import Dashboard from './views/Dashboard';
+
+
 
 function App() {
+
+  const [logged, setLoggedStatus] = useState(true);
+
   return (
-    <VFXProvider>
-      <LoginModal/>
-      <Sidebar/>
-    </VFXProvider>
+    <>
+      {
+        logged ?  
+        (
+          <Dashboard/>
+        )
+        :
+        (
+        <VFXProvider>
+          <LoginModal/>
+        </VFXProvider>
+        )
+      }
+    </>
   );
 }
 

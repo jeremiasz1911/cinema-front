@@ -1,4 +1,13 @@
-import Sidebar from 'components/Sidebar/Sidebar.js';
-import appRoutes from 'routes/app.js';
-import image from 'assets/img/sidebar-1.jpg';
-import logo from 'assets/img/reactlogo.png';
+import Navbar from '../components/Navbar';
+import Sidebar from '../components/Sidebar';
+
+const Dashboard = (props) => {
+    return(
+        <div className="position-fixed">
+        
+        <Sidebar/>
+        
+        </div>
+    )
+}
+export default Dashboard;
