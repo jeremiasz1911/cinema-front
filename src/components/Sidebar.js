@@ -1,22 +1,23 @@
-import React, { useState } from 'react';
 import logo from '../assets/logo/cinema.png';
 import { IoIosTv, IoIosVideocam, IoIosWallet, IoIosCube, IoIosToday } from "react-icons/io";
 
 const Sidebar = (props) => {
     return (
-        <nav className="col-sm-2 d-sm-block bg-dark sidebar h-100 position-fixed">
+    <>
+      <div className="col-sm-2 d-sm-block sidebar d-flex"></div>
+        <nav className="col-sm-2 d-sm-block bg-dark sidebar h-100 position-fixed d-flex">
           
-                <div className="sidebar-sticky mt-3">
+                <div className="sidebar-sticky mt-3 ">
                   <div className="d-flex justify-content-center">
                     <img className="d-flex logo-white" width="120px" alt="CinemaApp" src={logo}/>
                   </div>
                   <hr className="bg-light"/>
                   <ul className="nav flex-column mt-3">
                     
-                    <div className="nav-link"> <IoIosTv className="icon-sidebar"/> Seanse</div>
-                    <div className="nav-link"> <IoIosVideocam className="icon-sidebar"/>Filmy</div>
+                    <div className="nav-link" onClick={()=>props.setLocations('Seanse')}> <IoIosTv className="icon-sidebar"/> Seanse</div>
+                    <div className="nav-link" onClick={()=>props.setLocations('Filmy')}> <IoIosVideocam className="icon-sidebar"/>Filmy</div>
                     <div className="nav-link"> <IoIosWallet className="icon-sidebar"/>Rezerwacje</div>
-                    <div className="nav-link"> <IoIosCube className="icon-sidebar"/>Sale</div>
+                    <div className="nav-link" onClick={()=>props.setLocations('Sale')}> <IoIosCube className="icon-sidebar"/>Sale</div>
                     <div className="nav-link"> <IoIosToday className="icon-sidebar"/>Repertuar</div>
                     
                   </ul>
@@ -55,6 +56,7 @@ const Sidebar = (props) => {
                   </ul>
                 </div>
               </nav>
+    </>
     )
 }
 export default Sidebar;

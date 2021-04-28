@@ -13,25 +13,21 @@ import {
   DropdownItem,
   NavbarText
 } from 'reactstrap';
-import logo from '../assets/logo/cinema.png';
 
-const Navbars = (props) => {
+const Sidebar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <div>
-      <Navbar color="light" light expand="md">
-        <NavbarBrand href="/"><img width="80px" alt="CinemaApp" src={logo}/></NavbarBrand>
+    <div className="sticky">
+      <Navbar className="h-30" color="dark" dark expand="sm">
+        <NavbarBrand href="/">reactstrap</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
               <NavLink href="/components/">Components</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
             </NavItem>
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
@@ -49,13 +45,18 @@ const Navbars = (props) => {
                   Reset
                 </DropdownItem>
               </DropdownMenu>
+            
             </UncontrolledDropdown>
+            
           </Nav>
-          <NavbarText>Simple Text</NavbarText>
+          <div className="form-inline my-2 my-lg-0">
+                  <input className="form-control" type="search" placeholder="Search" aria-label="Search"/>
+                </div>
+          <NavbarText>Logged (Admin)</NavbarText>
         </Collapse>
       </Navbar>
     </div>
   );
 }
 
-export default Navbars;
+export default Sidebar;

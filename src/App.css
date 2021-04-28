@@ -18,12 +18,14 @@
   background-color: #0087d7 !important;
   border: 0px !important;
 }
+/*sidebar*/
 .sidebar{
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   overflow: auto;
+  z-index: 10;
   min-width: 220px !important;
 }
 .logo-white{
@@ -32,7 +34,6 @@
 .nav-link{
   transition: 0.3s;
   border-radius: 10px;
-  font-size: 1rem;
   color:white;
   text-transform: uppercase;
 }
@@ -45,6 +46,45 @@
 .icon-sidebar{
   margin: 0 10px;
   margin-top: -2px;
+}
+/* navbar */
+.h-30{
+  height: 30px;
+}
+.sticky{
+  z-index: 5;
+  top:0;
+  position: sticky;
+  overflow: hidden;
+}
+.cube{
+  max-width: 19.7vw !important;
+}
+.image-height{
+  min-height: 13vw;
+  max-height: 13vw;
+}
+.p-2-2{
+  width: 3rem !important;
+  height: 3rem !important;
+  text-align: center;
+  padding: 0px !important;
+}
+.sale-view-modal{
+  min-width: 90% !important;
+}
+.sala{
+  width: 12rem;
+  height: 12rem;
+}
+.remove{
+  height: 38px !important;
+  margin-right: -37px;
+  z-index: 5;
+}
+.seat{
+  border-top-right-radius: 50% !important;
+  border-top-left-radius: 50% !important;
 }
 /* login screen animation back */
 /* .bg {

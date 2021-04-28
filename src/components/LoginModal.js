@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Form,FormGroup, Label, Input, Card, CardImg, CardBody, Col, Row, Button, FormFeedback} from 'reactstrap';
+import { Form,FormGroup, Label, Input, Card, CardBody, Col, Row, Button, FormFeedback} from 'reactstrap';
 import logo from '../assets/logo/cinema.png';
 import Login from '../utilis/api/auth/login';
 import axios from 'axios';
@@ -12,25 +12,9 @@ const LoginModal = (props) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const [logged, setLoggedStatus] = useState(false);
+  const [logged, setLoggedStatus] = useState(true);
 
-  
 
-  function Submit(){
-    setLoggedStatus('');
-    axios.get(`http://localhost:8080/users/login/user/?` + "login=" + username + "&password=" + password)
-    .then(res => {
-      const data = res.data;
-      setLoggedStatus(true);
-    }).catch(
-      function (error) {
-        setLoggedStatus(false);
-        console.log('Show error notification!')
-        return Promise.reject(error)
-      }
-    ); 
-    
-  }
 
   return (
     <div>
@@ -51,7 +35,7 @@ const LoginModal = (props) => {
         src={logo}
         width="50%"
         alt="Cinema App"
-        shader="shine"
+        shader="glitch"
         />
           <CardBody>
             <Form>
@@ -75,7 +59,7 @@ const LoginModal = (props) => {
                       )
                   }
                   <br></br>
-                  <Button className="login-button" onClick={()=>Submit()}>Login</Button>
+                  <Button className="login-button" >Login</Button>
                   </Col>
                   <Col md="3"/>
                 </Row>
