@@ -4,7 +4,9 @@ import Sidebar from '../components/Sidebar';
 import Filmy from './Filmy';
 import Sale from './Sale';
 import Seanse from './Seanse';
+import Rezerwacje from './Rezerwacje';
 import React from 'react';
+
 
 const Dashboard = (props) => {
 
@@ -18,8 +20,10 @@ const Dashboard = (props) => {
                 return <Filmy/>
             case 'Sale':
                 return <Sale/>
+            case 'Rezerwacje':
+                return <Rezerwacje/>
             default:
-                return <Filmy/>
+                return <Seanse/>
         }
     }
 

@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
-import AddSalaForm from '../components/AddSalaForm';
-import Sala from '../components/Sala';
+import AddRezerwacjeForm from '../components/AddRezerwacjeForm';
 import axios from 'axios';
 import loadingSpinner from '../components/loadingSpinner';
 
-const Sale = (props) => {
+const Rezerwacje = (props) => {
   const [sale, setSale] = useState([]);
   function refresh(){
     console.log('s');
@@ -27,20 +26,12 @@ const Sale = (props) => {
 
     return(
         <div>
-          <AddSalaForm buttonLabel="Dodaj nową salę" refresh={refresh}/>
+          <AddRezerwacjeForm buttonLabel="Dodaj nową rezerwację" refresh={refresh}/>
           <hr/>
           <div className="d-flex flex-wrap">
-          {
-          (sale.length<1) ? 
-          (<loadingSpinner/>) : 
-          (
-            sale.map((sala,index) => 
-              <Sala buttonLabel={sala.name} rows={sala.rows} seatsRows={sala.seatsRows} id={sala.id} refresh={refresh}/>
-            )
-          )
-          }
+          sss
          </div>
         </div>
       )
 }
-export default Sale;
+export default Rezerwacje;

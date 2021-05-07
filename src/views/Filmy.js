@@ -1,11 +1,8 @@
 import React, { useState, useEffect} from 'react';
-import {
-    Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle,  
-  } from 'reactstrap';
+import {Card, CardImg, CardText, CardBody,CardTitle, CardSubtitle, Spinner} from 'reactstrap';
 import axios from 'axios';
-
 import AddFilmForm from '../components/AddFilmForm';
+import loadingSpinner from '../components/loadingSpinner';
 
 
 const Filmy = (props) => {
@@ -36,11 +33,11 @@ useEffect(() => {
           <div className="d-flex flex-wrap justify-content-left">
           {
             (filmy.length<1) ? 
-            (<h1>Nie żadnych filmów w bazie danych!</h1>) :
+            (<loadingSpinner/>) :
             (
               filmy.map((film,index) => 
-                  <Card key={index} className="d-block cube">
-                    <CardImg className="image-height" top width="50%" src={"http://localhost:8080/img/filmy/" + film.picture} alt="Card image cap" />
+                  <Card key={index} className="d-block cube m-2">
+                    <CardImg className="image-height" top width="50%" src={"http://localhost:8080/img/filmy/" + film.picture} alt="Film picture" />
                     <CardBody>
                       <CardTitle tag="h5">{film.title}</CardTitle>
                       <CardSubtitle tag="h6" className="mb-2 text-muted">{film.genre}</CardSubtitle>

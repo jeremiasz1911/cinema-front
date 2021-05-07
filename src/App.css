@@ -86,6 +86,24 @@
   border-top-right-radius: 50% !important;
   border-top-left-radius: 50% !important;
 }
+.image-seans{
+  width: 7em !important;
+  height: 7em !important;
+}
+.list-seans{
+  padding: 5px !important;
+}
+.filters-seans{
+  margin-left: auto !important;
+}
+.width-auto{
+  width: auto !important;
+}
+.width10em{
+  width: 10em !important;
+}
+
+
 /* login screen animation back */
 /* .bg {
   animation:slide 15s ease-in-out infinite alternate;

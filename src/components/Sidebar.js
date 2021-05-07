@@ -16,7 +16,7 @@ const Sidebar = (props) => {
                     
                     <div className="nav-link" onClick={()=>props.setLocations('Seanse')}> <IoIosTv className="icon-sidebar"/> Seanse</div>
                     <div className="nav-link" onClick={()=>props.setLocations('Filmy')}> <IoIosVideocam className="icon-sidebar"/>Filmy</div>
-                    <div className="nav-link"> <IoIosWallet className="icon-sidebar"/>Rezerwacje</div>
+                    <div className="nav-link" onClick={()=>props.setLocations('Rezerwacje')}> <IoIosWallet className="icon-sidebar"/>Rezerwacje</div>
                     <div className="nav-link" onClick={()=>props.setLocations('Sale')}> <IoIosCube className="icon-sidebar"/>Sale</div>
                     <div className="nav-link"> <IoIosToday className="icon-sidebar"/>Repertuar</div>
                     

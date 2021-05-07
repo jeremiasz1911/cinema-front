@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Label, Input} from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Label, Input, InputGroup, InputGroupAddon} from 'reactstrap';
 import axios from 'axios';
 
 const AddSeansForm = (props) => {
@@ -11,12 +11,12 @@ const AddSeansForm = (props) => {
     
     const formData = new FormData(document.getElementById('addMovieForm'));
 
-    axios.post('http://localhost:8080/api/filmy/upload/', formData)
+    axios.post('http://localhost:8080/api/seanse/', formData)
       .then(response => {
         console.log(response);
         props.refresh();
         setModal(!modal);
-        
+        toggle();
       })
       .catch(error => {
         console.log(error);
@@ -37,38 +37,40 @@ const AddSeansForm = (props) => {
          <form id="addMovieForm" onSubmit={(e) => onSubmit(e)}>
 
           <FormGroup>
-              <Label for="title">Tytuł</Label>
-              <Input required type="text" name="title" id="title" placeholder="Podaj tytuł filmu"/>
+              <Label for="film">Film</Label>
+              <Input required type="select" name="film" id="film">
+                {
+                  props.films.map((i) => 
+                    <option value={i.id}>{i.title}</option>
+                  )
+                }
+              </Input>
           </FormGroup>
           <FormGroup>
-              <Label for="genre">Gatunek</Label>
-              <Input required type="text" name="genre" id="genre" placeholder="Podaj gatunek filmu"/>
+              <Label for="sala">Sala</Label>
+              <Input required type="select" name="sala" id="sala">
+                {
+                  props.sale.map((i) => 
+                    <option value={i.id}>{i.name}</option>
+                  )
+                }
+              </Input>
           </FormGroup>
           <FormGroup>
-              <Label for="description">Opis filmu</Label>
-              <Input required type="text" name="description" id="description" placeholder="Opisz film"/>
+              <Label for="data">Data</Label>
+              <Input required type="datetime-local" name="data" id="data" placeholder="Data"/>
           </FormGroup>
           <FormGroup>
-              <Label for="year">Rok produkcji</Label>
-              <Input required type="number" name="year" id="year" placeholder="Podaj rok produkcji filmu"/>
+              <Label for="price">Cena <span className="text-secondary"> - np 12.99</span></Label>
+               
+              <InputGroup>
+                <InputGroupAddon addonType="prepend">PLN</InputGroupAddon>
+                <Input id="price" name="price" placeholder="0.00" min={0}type="number" step="0.01" />
+              </InputGroup>
           </FormGroup>
-          <FormGroup>
-              <Label for="director">Reżyser</Label>
-              <Input required type="text" name="director" id="director" placeholder="Podaj imię i nazwisko reżysera"/>
-          </FormGroup>
-          <FormGroup>
-              <Label for="duration">Czas trwania</Label>
-              <Input required type="number" name="duration" id="duration" placeholder="Podaj ile minut trwa film" />
-          </FormGroup>
-          <FormGroup>
-              <Label required for="img">Wybierz zdjęcie filmu (PNG) </Label>
-
-          </FormGroup>
-
-              <Input type="file" name="file" required />
                 <ModalFooter className="m-2">
                   
-                    <input id="submitButton" type="submit" className="btn btn-primary" value="Dodaj film"/>
+                    <input id="submitButton" type="submit" className="btn btn-primary" value="Dodaj seans"/>
                     
                   <Button color="secondary" onClick={toggle}>Cancel</Button>
                 </ModalFooter>
